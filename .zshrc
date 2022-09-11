@@ -46,10 +46,7 @@ function ca() {
   file="$*"
   config add $file
 }
-function cc() {
-  message="$*"
-  config commit -m $message
-}
+# cc alias for config commit -m doesn't seem to work
 
 
 #-----------------#
