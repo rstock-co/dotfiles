@@ -46,7 +46,10 @@ function ca() {
   file="$*"
   config add $file
 }
-# cc alias for config commit -m doesn't seem to work
+alias cp='config push origin master'
+
+# NOTE: `cc` alias for `config commit -m` doesn't seem to work
+
 
 
 #-----------------#
