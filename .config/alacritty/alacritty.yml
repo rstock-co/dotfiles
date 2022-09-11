@@ -1,0 +1,78 @@
+# always start tmux when opening alacritty
+# shell:
+#  program: /bin/zsh
+#  args:
+#    - -l
+#    - -c
+#    - "tmux attach || tmux"
+
+# always open alacritty in maximized widown
+window: 
+  startup_mode: Maximized
+  decorations: full
+  opacity: 0.97
+  title: The Matrix
+
+font:
+  normal:
+    family: DroidSans Mono Nerd Font
+    style: Regular
+# DroidSans Mono Nerd Font
+  medium:
+    family: FiraCode Nerd Font
+    style: Medium
+
+  bold:
+    family: Hack Nerd Font
+    style: Bold
+
+  italic:
+    family: monospace
+    style: Italic
+
+  bold_italic:
+    family: monospace
+    style: Bold Italic
+
+  size: 13
+
+
+
+# VSCode's integrated terminal default colors
+# Primary and dimmed colors needed
+colors:
+  # Default colors
+  primary:
+    background: '0x1E1D2F'
+    foreground: '0xD9E0EE'
+
+  cursor:
+    text: '0x1E1D2F'
+    cursor: '0xF5E0DC'
+
+  # Normal colors
+  normal:
+    black: '0x6E6C7E'
+    red: '0xF28FAD'
+    green: '0xABE9B3'
+    yellow: '0xFAE3B0'
+    blue: '0x96CDFB'
+    magenta: '0xF5C2E7'
+    cyan: '0x89DCEB'
+    white: '0xD9E0EE'
+
+  # Bright colors
+  bright:
+    black: '0x988BA2'
+    red: '0xF28FAD'
+    green: '0xABE9B3'
+    yellow: '0xFAE3B0'
+    blue: '0x96CDFB'
+    magenta: '0xF5C2E7'
+    cyan: '0x89DCEB'
+    white: '0xD9E0EE'
+
+  indexed_colors:
+    - { index: 16, color: '0xF8BD96' }
+    - { index: 17, color: '0xF5E0DC' }
+theme: Catppuccin
