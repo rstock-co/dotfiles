@@ -46,13 +46,16 @@ function ca() {
   file="$*"
   config add $file
 }
-alias cp='config push origin master'
 function cc() {
   message="$*"
   config commit -m $message
 }
-# NOTE: `cc` alias for `config commit -m` doesn't seem to work
+alias cp='config push origin master'
 
+# function cpa() {
+#   message="$*"
+#   config add . && config commit -m $message && config push origin master
+# }
 
 
 #-----------------#
