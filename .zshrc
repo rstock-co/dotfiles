@@ -36,9 +36,12 @@ USE_POWERLINE="true"
 powerline-daemon -q
 source /usr/share/powerline/bindings/zsh/powerline.zsh
 
-#--------------#
-# DOTFILE REPO #
-#--------------#
+#------------------------------#
+# DOTFILE REPO VERSION CONTROL #
+#------------------------------#
+
+# read https://www.atlassian.com/git/tutorials/dotfiles
+# and https://wiki.archlinux.org/title/Dotfiles
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cs='config status'
@@ -56,7 +59,6 @@ alias cp='config push origin master'
 #   message="$*"
 #   config add . && config commit -m $message && config push origin master
 # }
-
 
 #-----------------#
 # GENERAL UTILITY #
@@ -133,6 +135,14 @@ function ni(){
 #-----#
 
 alias g="git"
+alias genssh="ls ~/.ssh; ssh-keygen -t ed25519 -C 'rstock.co@gmail.com'"
+
+# copy ssh key from file to clipboard for pasting into Github 
+# syntax: `copssh <ssh key filename>` (ie. id_ed25519.pub)
+function copssh() {
+  filename="$*"
+  xclip -selection clipboard -i < $filename
+}
 
 # **
 #  Core - Single Commands (always 2 characters)
@@ -241,7 +251,7 @@ function cg() {
 # NAVIGATION #
 #------------#
 
-alias .="cd ~"
+alias ~="cd ~"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
