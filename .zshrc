@@ -65,14 +65,14 @@ alias cp='config push origin master'
 #-----------------#
 
 # general utility
-alias sn="sudo shutdown now"
-alias rn="sudo reboot now"
+alias sn="echo 'Lkjuio*8' | sudo -S shutdown now"
+alias rn="echo 'Lkjuio*8' | sudo -S reboot now"
 alias c="clear"
 
 # external hard drive
 alias hd="cd /mnt; ls"
-alias mhd="sudo mount -t ntfs3 /dev/sdb1 /mnt"
-alias uhd="sudo umount /mnt"
+alias mhd="echo 'Lkjuio*8' | sudo -S mount -t ntfs3 /dev/sdb1 /mnt"
+alias uhd="echo 'Lkjuio*8' | sudo -S umount /mnt"
 
 #--------------------#
 # PACKAGE MANAGEMENT #
@@ -256,9 +256,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-# Lighthouse current project
-alias p="cd ~/lighthouse/tinyapp"
-
 # file listing using exa with colors and icons
 alias ls='exa -a --color=always --group-directories-first --icons'
 
@@ -271,6 +268,9 @@ function lt(){
 #------------#
 # LIGHTHOUSE #
 #------------#
+
+# Lighthouse navigate to current project
+alias p="cd ~/lighthouse/tweeter"
 
 # vagrant commands (remember, can only run these outside of vagrant machine)
 alias vu="cd ~/lighthouse; vagrant up"
