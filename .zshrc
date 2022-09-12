@@ -36,6 +36,9 @@ USE_POWERLINE="true"
 powerline-daemon -q
 source /usr/share/powerline/bindings/zsh/powerline.zsh
 
+# List of all single character aliases currently already used:
+# [c, g, i, p, r, t]
+
 #------------------------------#
 # DOTFILE REPO VERSION CONTROL #
 #------------------------------#
@@ -45,6 +48,7 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cs='config status'
+alias cd='config diff'
 function ca() {
   file="$*"
   config add $file
@@ -74,9 +78,9 @@ alias hd="cd /mnt; ls"
 alias mhd="echo 'Lkjuio*8' | sudo -S mount -t ntfs3 /dev/sdb1 /mnt"
 alias uhd="echo 'Lkjuio*8' | sudo -S umount /mnt"
 
-#--------------------#
-# PACKAGE MANAGEMENT #
-#--------------------#
+#-------------------------------#
+# ARCH LINUX PACKAGE MANAGEMENT #
+#-------------------------------#
 
 # install a package | syntax: `i <package name>`
 function i() {
@@ -87,7 +91,7 @@ function i() {
 alias update="sudo pacman -Syu"
 alias orphans="pacman -Qdt"
 alias foreign="pacman -Qm"
-alias mypacks="pacman -Qet"  # lists the packages that i've explicitly installed
+alias mypacs="pacman -Qet"  # lists the packages that i've explicitly installed
 
 #--------------------------#
 # OPEN / EDIT CONFIG FILES #
@@ -112,17 +116,23 @@ alias tm="code ~/.tmux.conf"
 # powerline
 alias pl="code ~/.config/powerline/"
 
-#----------#
-# PROGRAMS #
-#----------#
+#--------------------------#
+# LAUNCH TERMINAL PROGRAMS #
+#--------------------------#
 
-# launch progrmas
 alias r="ranger"
 alias t="tmux"
 
-# tmux
+#------#
+# TMUX #
+#------#
+
 alias trf="tmux kill-session -a" # refresh: exit all except current session
 alias tk="tmux kill-server" # kill: completely exit all tmux sessions
+
+#-----#
+# NPM #
+#-----#
 
 # npm install | syntax: `ni <package name>`
 function ni(){
@@ -130,11 +140,18 @@ function ni(){
   npm i $package
 }
 
+# custom scripts (these are project specific and should be routinely reviewed and pruned)
+
+# tweeter project - start server
+alias nr="npm run local"
+
 #-----#
 # GIT #
 #-----#
 
 alias g="git"
+
+# generate a new ssh key
 alias genssh="ls ~/.ssh; ssh-keygen -t ed25519 -C 'rstock.co@gmail.com'"
 
 # copy ssh key from file to clipboard for pasting into Github 
@@ -145,7 +162,7 @@ function copssh() {
 }
 
 # **
-#  Core - Single Commands (always 2 characters)
+#  CORE git - Single Commands (always 2 characters)
 # ** 
 
 alias gd="git diff"
@@ -168,7 +185,7 @@ function gp() {
 }
 
 # **
-#  Core - Multistep (always 3 characters)
+#  MULTI-STEP git (always 3 characters)
 # ** 
 
 # git push all | syntax: `gpa <commit message>` | to push all current work to current branch
@@ -227,7 +244,7 @@ function gnp() {
 }
 
 # **
-#  Create repos / gists
+#  CREATE new git repos & gists
 # ** 
 
 # create repo | syntax: `cr <repo name> <repo description>`
