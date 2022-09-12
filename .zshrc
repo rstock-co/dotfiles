@@ -102,16 +102,14 @@ alias ea="code ~/.zshrc"
 alias sa="source ~/.zshrc"
 
 # i3
-alias i3="code ~/.config/i3/config"
-# source with `Ctrl+Shift+c`
+alias i3="code ~/.config/i3/config" # (source with `Ctrl+Shift+c`)
 
 # alacritty (terminal)
 alias al="code ~/.config/alacritty/alacritty.yml"
-# exit all terminal windows and restart to source aliases
 
 # tmux
 alias tm="code ~/.tmux.conf"
-# kill tmux server and restart tmux to source aliases
+
 
 # powerline
 alias pl="code ~/.config/powerline/"
@@ -127,8 +125,11 @@ alias t="tmux"
 # TMUX #
 #------#
 
-alias trf="tmux kill-session -a" # refresh: exit all except current session
-alias tk="tmux kill-server" # kill: completely exit all tmux sessions
+# refresh: exit all except current session
+alias tr="tmux kill-session -a" 
+
+# kill: completely exit all tmux sessions
+alias tk="tmux kill-server" 
 
 #-----#
 # NPM #

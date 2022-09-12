@@ -8,7 +8,7 @@
 set $mod Mod4
 
 # List of all single character aliases currently already used:
-# [a, d, e, f, g, h, j, k, l, m, r, s, v, w, z] PLUS --> [space, return, ;]
+# [a, d, f, g, h, j, k, l, m, p, r, s, t, v, z] PLUS --> [space, return, ;]
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -38,7 +38,7 @@ bindsym $mod+q kill
 # https://i3wm.org/docs/userguide.html#keybindings
 #-------------------------------
 
-# start a terminal (enter)
+# start a terminal (Enter)
 bindsym $mod+Return exec alacritty
 
 # start Google Chrome (g)
@@ -69,6 +69,12 @@ bindsym $mod+m exec --no-startup-id i3-dmenu-desktop
 # https://i3wm.org/docs/userguide.html#assign_workspace
 #-----------------------------------------
 
+# NOTE: use the `xprop` command and then click on the window of the program 
+# you wish to bind to see its class => ex: (WM_CLASS(STRING) = "<instance> <class>")
+
+# Assign Zoom to workspace 1 (always want it on the screen with webcam)
+assign [class="zoom"] $ws1
+
 # Assign GitKraken to workspace 3 
 assign [class="GitKraken"] $ws3
 
@@ -87,12 +93,19 @@ set $monitor_two "HDMI-2"
 set $monitor_three "HDMI-3"
 
 # Monitor 1
+workspace $ws1 output $monitor_one
+workspace $ws4 output $monitor_one
+workspace $ws7 output $monitor_one
 
 # Monitor 2
+workspace $ws2 output $monitor_two
+workspace $ws5 output $monitor_two
+workspace $ws8 output $monitor_two
 
 # Monitor 3
 workspace $ws3 output $monitor_three
 workspace $ws6 output $monitor_three
+workspace $ws9 output $monitor_three
 
 #----------------------
 # WINDOW BORDERS & GAPS
@@ -156,8 +169,8 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+t layout tabbed
+bindsym $mod+p layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
