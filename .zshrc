@@ -39,6 +39,34 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
 # List of all single character aliases currently already used:
 # [c, g, i, p, r, t]
 
+#------------#
+# LIGHTHOUSE #
+#------------#
+
+# CURRENT PROJECT (note these will change every week)
+# Navigate to current project in terminal
+alias p="cd ~/lighthouse/tweeter"
+# Open current project in VS Code
+alias ccp="code ~/lighthouse/tweeter"
+# NPM aliases for current project
+alias nrl="npm run local"
+
+# VAGRANT
+# (remember, can only run these outside of vagrant machine)
+alias vu="cd ~/lighthouse; vagrant up"
+alias vs="cd ~/lighthouse; vagrant ssh"
+alias vh="cd ~/lighthouse; vagrant halt"
+
+# LECTURE NOTES (in development)
+function tn(){
+  type="$1"
+  time="$2"
+  # instructor="$3"
+  # content=Week ${time:1,2}, Day ${time:4,2} - (insert date)
+  # echo $content
+  cd ~/lighthouse/lighthouse-web-notes; touch ${time}_${type}.md; code ${time}_${type}.md
+}
+
 #------------------------------#
 # DOTFILE REPO VERSION CONTROL #
 #------------------------------#
@@ -48,7 +76,7 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cs='config status'
-alias cd='config diff'
+# DO NOT CREATE:  alias cd='config diff'
 function ca() {
   file="$*"
   config add $file
@@ -57,7 +85,7 @@ function cc() {
   message="$*"
   config commit -m $message
 }
-alias cp='config push origin master'
+alias cpu='config push origin master'
 
 # function cpa() {
 #   message="$*"
@@ -72,11 +100,17 @@ alias cp='config push origin master'
 alias sn="echo 'Lkjuio*8' | sudo -S shutdown now"
 alias rn="echo 'Lkjuio*8' | sudo -S reboot now"
 alias c="clear"
+alias mv="mv -iv"
+alias cp="cp -iv"
+alias md="mkdir -v"
 
 # external hard drive
 alias hd="cd /mnt; ls"
 alias mhd="echo 'Lkjuio*8' | sudo -S mount -t ntfs3 /dev/sdb1 /mnt"
 alias uhd="echo 'Lkjuio*8' | sudo -S umount /mnt"
+
+# # ip address
+# alias ip="echo Your ip is; dig +short myip.opendns.com @resolver1.opendns.com;"
 
 #-------------------------------#
 # ARCH LINUX PACKAGE MANAGEMENT #
@@ -136,21 +170,34 @@ alias tk="tmux kill-server"
 #-----#
 
 # npm install | syntax: `ni <package name>`
-function ni(){
-  package="$*"
-  npm i $package
-}
+# function ni(){
+#   package="$*"
+#   npm i $package
+# }
 
-# custom scripts (these are project specific and should be routinely reviewed and pruned)
+alias ni='npm install'
+alias nis='npm install --save'
+alias nid='npm install --save-dev'
+alias nig='npm install --global'
+alias ns='npm start'
+alias nt='npm test'
+alias nit='npm install && npm test'
+alias nk='npm link'
+alias nr='npm run'
+alias npm-reset='rm -rf node_modules && rm -f package-lock.json && npm install && npx node-notifier-cli -t "Done" -m "npm modules reinstalled" -s Glass -i https://cdn.rawgit.com/npm/logos/31945b5c/npm%20square/n-64.png'
+alias dnm='rm -rf node_modules && npm i'
 
-# tweeter project - start server
-alias nr="npm run local"
 
 #-----#
 # GIT #
 #-----#
 
 alias g="git"
+
+# "Run" ssh links to clone repos without having to type `git clone`. For example:
+# > git@github.com:stefanjudis/dotfiles.git
+# (runs git clone git@github.com:stefanjudis/dotfiles.git)
+alias -s git="git clone"
 
 # generate a new ssh key
 alias genssh="ls ~/.ssh; ssh-keygen -t ed25519 -C 'rstock.co@gmail.com'"
@@ -168,8 +215,10 @@ function copssh() {
 
 alias gd="git diff"
 alias gs="git status"
-
-alias ga="git add ."
+alias gaa="git add ."
+alias ga="git add"
+alias gr="git restore --staged"
+alias gra="git reset HEAD -- ."
 
 # git commit | syntax: `gc <commit message>`
 function gc() {
@@ -275,7 +324,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 # file listing using exa with colors and icons
-alias ls='exa -a --color=always --group-directories-first --icons'
+alias ls='exa -a --color=always --group-directories-first --icons --git'
+alias ll='exa -la --color=always --group-directories-first --icons --git'
 
 # list tree | syntax: `lt <depth>` | note: depth is an integer for how many tree levels to display
 function lt(){
@@ -283,27 +333,6 @@ function lt(){
   exa --tree --level=$depth
 }
 
-#------------#
-# LIGHTHOUSE #
-#------------#
-
-# Lighthouse navigate to current project
-alias p="cd ~/lighthouse/tweeter"
-
-# vagrant commands (remember, can only run these outside of vagrant machine)
-alias vu="cd ~/lighthouse; vagrant up"
-alias vs="cd ~/lighthouse; vagrant ssh"
-alias vh="cd ~/lighthouse; vagrant halt"
-
-# Lecture Notes (in development)
-function tn(){
-  type="$1"
-  time="$2"
-  # instructor="$3"
-  # content=Week ${time:1,2}, Day ${time:4,2} - (insert date)
-  # echo $content
-  cd ~/lighthouse/lighthouse-web-notes; touch ${time}_${type}.md; code ${time}_${type}.md
-}
 
 # ---------------#
 # IN DEVELOPMENT #

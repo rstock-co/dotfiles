@@ -8,7 +8,7 @@
 set $mod Mod4
 
 # List of all single character aliases currently already used:
-# [a, d, f, g, h, j, k, l, m, p, r, s, t, v, z] PLUS --> [space, return, ;]
+# [a, c, d, f, g, h, j, k, l, m, p, r, s, t, v, z] PLUS --> [space, return, ;]
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -43,6 +43,9 @@ bindsym $mod+Return exec alacritty
 
 # start Google Chrome (g)
 bindsym $mod+g exec --no-startup-id google-chrome-stable
+
+# start VS Code (c)
+bindsym $mod+c exec --no-startup-id code
 
 # start Zoom (z)
 bindsym $mod+z exec --no-startup-id zoom
@@ -200,26 +203,29 @@ set $ws10 "10"
 # switch to workspace
 # https://unix.stackexchange.com/questions/566566/binding-numpad-keys-on-i3-dont-work
 
-bindsym mod2+KP_1 workspace $ws1
-bindsym mod2+KP_2 workspace $ws2
-bindsym mod2+KP_3 workspace $ws3
-bindsym mod2+KP_4 workspace $ws4
-bindsym mod2+KP_5 workspace $ws5
-bindsym mod2+KP_6 workspace $ws6
-bindsym mod2+KP_7 workspace $ws7
-bindsym mod2+KP_8 workspace $ws8
-bindsym mod2+KP_9 workspace $ws9
+# bindsym mod2+KP_1 workspace $ws1
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
 
 # move focused container to workspace
-bindsym $mod+mod2+KP_1 move container to workspace number $ws1
-bindsym $mod+mod2+KP_2 move container to workspace number $ws2
-bindsym $mod+mod2+KP_3 move container to workspace number $ws3
-bindsym $mod+mod2+KP_4 move container to workspace number $ws4
-bindsym $mod+mod2+KP_5 move container to workspace number $ws5
-bindsym $mod+mod2+KP_6 move container to workspace number $ws6
-bindsym $mod+mod2+KP_7 move container to workspace number $ws7
-bindsym $mod+mod2+KP_8 move container to workspace number $ws8
-bindsym $mod+mod2+KP_9 move container to workspace number $ws9
+# bindsym $mod+mod2+KP_1 move container to workspace number $ws1
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
 
 # ----------------------------------------------------
 # resize window (you can also use the mouse for that)
