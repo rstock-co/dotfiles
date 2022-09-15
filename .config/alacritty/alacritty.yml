@@ -15,7 +15,7 @@ window:
 
 font:
   normal:
-    family: DroidSans Mono Nerd Font
+    family: BPmono
     style: Regular
 # DroidSans Mono Nerd Font
   medium:
