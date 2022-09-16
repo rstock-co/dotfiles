@@ -13,20 +13,32 @@
 #    code ▓▒ https://github.com/rstock-co/dotfiles
 
 
+# ▓▓▒░  single char aliases in use  ░▒▓▓
 
-# ▓▓▒░ single char aliases in use ░▒▓▓
-# [c, g, i, p, r, t]
+    # [c, g, i, o, p, r, t]
+
+# ▓▓▒░  print  ░▒▓▓
+
+    clear
+    # echo ▓▒░  ARCH LINUX CUSTOM ZSH SHELL  ░▒▓
+    echo It is currently $(date "+%A, %B %-e, %G, %l:%M %P %Z")
+    echo User $USER on $TERM running '\uF303' Arch Linux '('`uname -r`')''\uF303'
+    echo
 
 
-# ▓▓▒░ sys ░▒▓▓
+# ▓▓▒░  sys  ░▒▓▓
 
     alias sudo='sudo ' # hack to allow aliases with sudo
-    alias sn="echo 'Lkjuio*8' | sudo -S shutdown now"
-    alias rn="echo 'Lkjuio*8' | sudo -S reboot now"
-    alias c="clear"
-    alias mv="mv -iv"
-    alias cp="cp -iv"
-    alias md="mkdir -v"
+    alias   sn="echo 'Lkjuio*8' | sudo -S shutdown now"
+    alias   rn="echo 'Lkjuio*8' | sudo -S reboot now"
+    alias    c="clear"
+    alias   mv="mv -iv"
+    alias   cp="cp -iv"
+    alias   md="mkdir -v"
+    alias    o='xdg-open'
+
+  # grep
+    alias grep='grep --color=auto -i'
 
   # ip address
     # alias ip="echo Your ip is; dig +short myip.opendns.com @resolver1.opendns.com;"
@@ -44,11 +56,11 @@
     source /usr/share/powerline/bindings/zsh/powerline.zsh
 
 
-# ▓▓▒░ navigation ░▒▓▓
+# ▓▓▒░  navigation  ░▒▓▓
 
-    alias ~="cd ~"
-    alias ..="cd .."
-    alias ...="cd ../.."
+    alias    ~="cd ~"
+    alias   ..="cd .."
+    alias  ...="cd ../.."
     alias ....="cd ../../.."
 
   # file listing using exa with colors and icons
@@ -64,19 +76,19 @@
     }
 
 
-# ▓▓▒░ lighthouse ░▒▓▓
+# ▓▓▒░  lighthouse  ░▒▓▓
 
   #current project 
 
-    alias p="cd ~/lighthouse/tweeter"
+    alias   p="cd ~/lighthouse/tweeter"
     alias ccp="code ~/lighthouse/tweeter"
     alias nrl="npm run local"
 
   #vagrant
 
-    alias vu="cd ~/lighthouse; vagrant up"
+    alias  vu="cd ~/lighthouse; vagrant up"
     alias vsh="cd ~/lighthouse; vagrant ssh"
-    alias vh="cd ~/lighthouse; vagrant halt"
+    alias  vh="cd ~/lighthouse; vagrant halt"
 
   #lecture notes (needs work)
 
@@ -90,13 +102,14 @@
     }
 
 
-# ▓▓▒░ dotfile repo ░▒▓▓
+# ▓▓▒░  dotfile repo  ░▒▓▓
 
 # see https://www.atlassian.com/git/tutorials/dotfiles and https://wiki.archlinux.org/title/Dotfiles
 
     alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-    alias cs='config status'
-  
+    alias     cs='config status'
+    alias    cpu='config push origin master'
+    
     function ca() {
       file="$*"
       config add $file
@@ -107,22 +120,20 @@
       config commit -m $message
     }
 
-    alias cpu='config push origin master'
-
   # function cpa() {
   #   message="$*"
   #   config add . && config commit -m $message && config push origin master
   # }
 
 
-# ▓▓▒░ external hard drive ░▒▓▓
+# ▓▓▒░  external hard drive  ░▒▓▓
 
     alias hd="cd /mnt; ls"
     alias mhd="echo 'Lkjuio*8' | sudo -S mount -t ntfs3 /dev/sdb1 /mnt"
     alias uhd="echo 'Lkjuio*8' | sudo -S umount /mnt"
 
 
-# ▓▓▒░ archlinux package management ░▒▓▓
+# ▓▓▒░  archlinux package management  ░▒▓▓
 
   # install a package | syntax: `i <package name>`
 
@@ -131,13 +142,14 @@
       sudo pacman -S $package
     }
 
-    alias update="sudo pacman -Syu"
+    alias  pacman='pacman --color=auto'
+    alias  update="sudo pacman -Syu"
     alias orphans="pacman -Qdt"
     alias foreign="pacman -Qm"
-    alias mypacs="pacman -Qet"  # lists the packages i've explicitly installed
+    alias  mypacs="pacman -Qet"  # lists the packages i've explicitly installed
 
 
-# ▓▓▒░ open & edit config files ░▒▓▓
+# ▓▓▒░  open & edit config files  ░▒▓▓
 
   # zshrc (aliases)
     alias ea="code ~/.zshrc"
@@ -159,13 +171,13 @@
     alias vs="code ~/.config/Code/User/settings.json"
 
 
-# ▓▓▒░ launch programs ░▒▓▓
+# ▓▓▒░  launch programs  ░▒▓▓
 
-    alias r="ranger"
-    alias t="tmux"
+    alias  r="ranger"
+    alias  t="tmux"
 
 
-# ▓▓▒░ tmux ░▒▓▓
+# ▓▓▒░  tmux  ░▒▓▓
 
   # refresh: exit all except current session
     alias tr="tmux kill-session -a" 
@@ -174,7 +186,7 @@
     alias tk="tmux kill-server" 
 
 
-# ▓▓▒░ npm ░▒▓▓
+# ▓▓▒░  npm  ░▒▓▓
 
     # npm install | syntax: `ni <package name>`
     # function ni(){
@@ -182,20 +194,20 @@
     #   npm i $package
     # }
 
-    alias ni='npm install'
+    alias  ni='npm install'
     alias nis='npm install --save'
     alias nid='npm install --save-dev'
     alias nig='npm install --global'
-    alias ns='npm start'
-    alias nt='npm test'
+    alias  ns='npm start'
+    alias  nt='npm test'
     alias nit='npm install && npm test'
-    alias nk='npm link'
-    alias nr='npm run'
+    alias  nk='npm link'
+    alias  nr='npm run'
     alias npm-reset='rm -rf node_modules && rm -f package-lock.json && npm install && npx node-notifier-cli -t "Done" -m "npm modules reinstalled" -s Glass -i https://cdn.rawgit.com/npm/logos/31945b5c/npm%20square/n-64.png'
     alias dnm='rm -rf node_modules && npm i'
 
 
-# ▓▓▒░ git ░▒▓▓
+# ▓▓▒░  git  ░▒▓▓
 
     alias g="git"
 
@@ -208,19 +220,19 @@
     alias genssh="ls ~/.ssh; ssh-keygen -t ed25519 -C 'rstock.co@gmail.com'"
 
   # copy ssh key from file to clipboard for pasting into Github 
-  # syntax: `copssh <ssh key filename>` (ie. id_ed25519.pub)
+  # syntax: `copssh <ssh key filename>` (ie. filename = 'id_ed25519.pub')
     function copssh() {
       filename="$*"
       xclip -selection clipboard -i < $filename
     }
 
-  # ▒░CORE git - Single Commands (always 2 characters)░▒
+  # ▒░ CORE git - Single Commands (always 2 characters) ░▒
     
-    alias gd="git diff"
-    alias gs="git status"
+    alias  gd="git diff"
+    alias  gs="git status"
     alias gaa="git add ."
-    alias ga="git add"
-    alias gr="git restore --staged"
+    alias  ga="git add"
+    alias  gr="git restore --staged"
     alias gra="git reset HEAD -- ."
 
   # git commit | syntax: `gc <commit message>`
@@ -240,7 +252,7 @@
       git push $remote $branch
     }
 
-  # ▒░MULTI-STEP git (always 3 characters)░▒
+  # ▒░ MULTI-STEP git (always 3 characters) ░▒
   
   # git push all | syntax: `gpa <commit message>` | to push all current work to current branch
     function gpa() {
@@ -300,7 +312,7 @@
       git status && git add . && git commit -m $message && git push -u origin $branch
     }
 
-  # ▒░CREATE new git repos & gists░▒
+  # ▒░ CREATE new git repos & gists ░▒
 
   # create repo | syntax: `cr <repo name> <repo description>`
     function cr() {
@@ -320,7 +332,7 @@
 
 
 
-# ▓▓▒░ in development ░▒▓▓
+# ▓▓▒░  in development  ░▒▓▓
 
   # cli command: syntax `mdn <topic>` - opens browser with mdn topic
     function mdn(){
@@ -342,7 +354,7 @@
   # source $ZSH/oh-my-zsh.sh
 
 
-# ▓▓▒░ powerlevel10k ░▒▓▓ (move to very top - if going to use again)
+# ▓▓▒░  powerlevel10k  ░▒▓▓ (move to very top - if going to use again)
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
