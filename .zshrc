@@ -13,11 +13,11 @@
 #    code ▓▒ https://github.com/rstock-co/dotfiles
 
 
-# ▓▓▒░  single char aliases in use  ░▒▓▓
+# ▓▓▒░  single character aliases currently in use  ░▒▓▓
 
     # [c, g, i, o, p, r, t]
 
-# ▓▓▒░  print  ░▒▓▓
+# ▓▓▒░  print header when terminal opens  ░▒▓▓
 
     clear
     # echo ▓▒░  ARCH LINUX CUSTOM ZSH SHELL  ░▒▓
@@ -29,12 +29,13 @@
 # ▓▓▒░  sys  ░▒▓▓
 
     alias sudo='sudo ' # hack to allow aliases with sudo
-    alias   sn="echo 'Lkjuio*8' | sudo -S shutdown now"
-    alias   rn="echo 'Lkjuio*8' | sudo -S reboot now"
+    alias   sd="echo 'Lkjuio*8' | sudo -S shutdown"
+    alias   rb="echo 'Lkjuio*8' | sudo -S reboot"
     alias    c="clear"
     alias   mv="mv -iv"
     alias   cp="cp -iv"
     alias   md="mkdir -v"
+    alias   rm='rm -rf'
     alias    o='xdg-open'
 
   # grep
@@ -235,6 +236,10 @@
     alias  gr="git restore --staged"
     alias gra="git reset HEAD -- ."
 
+    # Remove the last commit (if already pushed to remote) in two commands:
+    alias rlc1='git reset HEAD\^'
+    alias rlc2='git push origin +HEAD'
+
   # git commit | syntax: `gc <commit message>`
 
     function gc() {
@@ -314,21 +319,23 @@
 
   # ▒░ CREATE new git repos & gists ░▒
 
-  # create repo | syntax: `cr <repo name> <repo description>`
+  # create new repo from local | syntax: `cr <repo name> <repo description>`
     function cr() {
       name="$1"
       desc="${*:2}"
       gh repo create $name -d $desc --public --clone; cd $name; git branch -m main
     }
 
-  # create gist | syntax: `cg <filepath> <gist title>` // note: filepath starts from lighthouse directory
+  # create gist from local | syntax: `cg <filepath> <gist title>` // note: filepath starts from lighthouse directory
     function cg() {
       filePath="$1"
       title="${*:2}"
       gh gist create ~/lighthouse/$filePath -d $title
     }
 
-  # clone repo
+  # push an existing local repo to GitHub (then follow prompts)
+
+    alias per="gh repo create"
 
 
 
