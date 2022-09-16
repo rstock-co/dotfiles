@@ -12,50 +12,56 @@
 #  author ▓▒ rstock-co
 #    code ▓▒ https://github.com/rstock-co/dotfiles
 
-# List of all single character aliases currently already used:
+
+
+# ▓▓▒░ single char aliases in use ░▒▓▓
 # [c, g, i, p, r, t]
 
-alias sudo='sudo ' # hack to allow aliases with sudo
 
 # ▓▓▒░ sys ░▒▓▓
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+    alias sudo='sudo ' # hack to allow aliases with sudo
+    alias sn="echo 'Lkjuio*8' | sudo -S shutdown now"
+    alias rn="echo 'Lkjuio*8' | sudo -S reboot now"
+    alias c="clear"
+    alias mv="mv -iv"
+    alias cp="cp -iv"
+    alias md="mkdir -v"
 
-# Path to your oh-my-zsh installation.
-# ZSH=/usr/share/oh-my-zsh/
+  # ip address
+    # alias ip="echo Your ip is; dig +short myip.opendns.com @resolver1.opendns.com;"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="random"
+  # Use z plugin (https://github.com/rupa/z)
+    source ~/.config/z.sh
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-# plugins=(git)
+  # fzf config files
+    source /usr/share/fzf/key-bindings.zsh
+    source /usr/share/fzf/completion.zsh
 
-# Use z plugin (https://github.com/rupa/z)
-source ~/.config/z.sh
+  # Use powerline
+    USE_POWERLINE="true"
+    powerline-daemon -q
+    source /usr/share/powerline/bindings/zsh/powerline.zsh
 
-# fzf config files
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
 
-# Use powerline
-USE_POWERLINE="true"
+# ▓▓▒░ navigation ░▒▓▓
 
-# testing that git will pick up changes in symlinked file
+    alias ~="cd ~"
+    alias ..="cd .."
+    alias ...="cd ../.."
+    alias ....="cd ../../.."
 
-powerline-daemon -q
-source /usr/share/powerline/bindings/zsh/powerline.zsh
+  # file listing using exa with colors and icons
+
+    alias ls='exa -a --color=always --group-directories-first --icons --git'
+    alias ll='exa -la --color=always --group-directories-first --icons --git'
+
+  # list tree | syntax: `lt <depth>` | note: depth is an integer for how many tree levels to display
+
+    function lt(){
+      depth="$1"
+      exa --tree --level=$depth
+    }
 
 
 # ▓▓▒░ lighthouse ░▒▓▓
@@ -69,10 +75,10 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
   #vagrant
 
     alias vu="cd ~/lighthouse; vagrant up"
-    alias vs="cd ~/lighthouse; vagrant ssh"
+    alias vsh="cd ~/lighthouse; vagrant ssh"
     alias vh="cd ~/lighthouse; vagrant halt"
 
-  #lecture notes
+  #lecture notes (needs work)
 
     function tn(){
       type="$1"
@@ -86,8 +92,7 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
 
 # ▓▓▒░ dotfile repo ░▒▓▓
 
-# read https://www.atlassian.com/git/tutorials/dotfiles
-# and https://wiki.archlinux.org/title/Dotfiles
+# see https://www.atlassian.com/git/tutorials/dotfiles and https://wiki.archlinux.org/title/Dotfiles
 
     alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
     alias cs='config status'
@@ -96,29 +101,18 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
       file="$*"
       config add $file
     }
+
     function cc() {
       message="$*"
       config commit -m $message
     }
+
     alias cpu='config push origin master'
 
-# function cpa() {
-#   message="$*"
-#   config add . && config commit -m $message && config push origin master
-# }
-
-
-# ▓▓▒░ general utility ░▒▓▓
-
-    alias sn="echo 'Lkjuio*8' | sudo -S shutdown now"
-    alias rn="echo 'Lkjuio*8' | sudo -S reboot now"
-    alias c="clear"
-    alias mv="mv -iv"
-    alias cp="cp -iv"
-    alias md="mkdir -v"
-
-    # # ip address
-    # alias ip="echo Your ip is; dig +short myip.opendns.com @resolver1.opendns.com;"
+  # function cpa() {
+  #   message="$*"
+  #   config add . && config commit -m $message && config push origin master
+  # }
 
 
 # ▓▓▒░ external hard drive ░▒▓▓
@@ -131,6 +125,7 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
 # ▓▓▒░ archlinux package management ░▒▓▓
 
   # install a package | syntax: `i <package name>`
+
     function i() {
       package="$*"
       sudo pacman -S $package
@@ -139,7 +134,7 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
     alias update="sudo pacman -Syu"
     alias orphans="pacman -Qdt"
     alias foreign="pacman -Qm"
-    alias mypacs="pacman -Qet"  # lists the packages that i've explicitly installed
+    alias mypacs="pacman -Qet"  # lists the packages i've explicitly installed
 
 
 # ▓▓▒░ open & edit config files ░▒▓▓
@@ -160,11 +155,17 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
   # powerline
     alias pl="code ~/.config/powerline/"
 
+  # vs code
+    alias vs="code ~/.config/Code/User/settings.json"
+
 
 # ▓▓▒░ launch programs ░▒▓▓
 
     alias r="ranger"
     alias t="tmux"
+
+
+# ▓▓▒░ tmux ░▒▓▓
 
   # refresh: exit all except current session
     alias tr="tmux kill-session -a" 
@@ -213,7 +214,7 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
       xclip -selection clipboard -i < $filename
     }
 
-  # ▒░CORE git - Single Commands (always 2 characters)
+  # ▒░CORE git - Single Commands (always 2 characters)░▒
     
     alias gd="git diff"
     alias gs="git status"
@@ -223,6 +224,7 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
     alias gra="git reset HEAD -- ."
 
   # git commit | syntax: `gc <commit message>`
+
     function gc() {
       message="$*"
       branch=$(git rev-parse --abbrev-ref HEAD)
@@ -230,13 +232,15 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
       git commit -m $message
     }
 
+  # git push
+
     function gp() {
       branch=$(git rev-parse --abbrev-ref HEAD)
       remote=$(git remote)
       git push $remote $branch
     }
 
-  # ▒░MULTI-STEP git (always 3 characters)
+  # ▒░MULTI-STEP git (always 3 characters)░▒
   
   # git push all | syntax: `gpa <commit message>` | to push all current work to current branch
     function gpa() {
@@ -256,6 +260,7 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
     }
 
   # git push multiple | syntax: `gpm <file 1 file 2 file 3..>,<message>` | NOTE: commit messages cannot have any symbols
+
     function gpm() {
       oldIFS=$IFS   # save IFS, the field separator
       IFS=' '
@@ -280,12 +285,14 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
     }
 
   # create new branch | syntax: `gnb <new branch name>`
+
     function gnb() {
       name="$1"
       git checkout -b $name
     }
 
   # push new branch | syntax: `gnp <commit message>`
+
     function gnp() {
       message="$*"
       branch=$(git rev-parse --abbrev-ref HEAD)
@@ -293,7 +300,7 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
       git status && git add . && git commit -m $message && git push -u origin $branch
     }
 
-  # ▒░CREATE new git repos & gists
+  # ▒░CREATE new git repos & gists░▒
 
   # create repo | syntax: `cr <repo name> <repo description>`
     function cr() {
@@ -311,23 +318,6 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
 
   # clone repo
 
-
-# ▓▓▒░ navigation ░▒▓▓
-
-    alias ~="cd ~"
-    alias ..="cd .."
-    alias ...="cd ../.."
-    alias ....="cd ../../.."
-
-  # file listing using exa with colors and icons
-    alias ls='exa -a --color=always --group-directories-first --icons --git'
-    alias ll='exa -la --color=always --group-directories-first --icons --git'
-
-  # list tree | syntax: `lt <depth>` | note: depth is an integer for how many tree levels to display
-    function lt(){
-      depth="$1"
-      exa --tree --level=$depth
-    }
 
 
 # ▓▓▒░ in development ░▒▓▓
@@ -350,3 +340,29 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
   # fi
 
   # source $ZSH/oh-my-zsh.sh
+
+
+# ▓▓▒░ powerlevel10k ░▒▓▓ (move to very top - if going to use again)
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+
+# Path to your oh-my-zsh installation.
+# ZSH=/usr/share/oh-my-zsh/
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="random"
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+# plugins=(git)
