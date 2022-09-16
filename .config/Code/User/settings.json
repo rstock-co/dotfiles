@@ -1,0 +1,28 @@
+{
+    "workbench.colorTheme": "One Dark Pro Mix",
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "window.zoomLevel": 1,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.minimap.enabled": false,
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.fontFamily": "'BPmono'",
+    "workbench.colorCustomizations": {
+        "editor.background": "#07070c",
+        "sideBar.background": "#0e0e1a",
+        "activityBar.background": "#0a0b11"
+    },
+    "sass.disableAutoIndent": true,
+    "[scss]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "scss.showErrors": true
+}
