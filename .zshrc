@@ -15,7 +15,7 @@
 
 # ▓▓▒░  single character aliases currently in use  ░▒▓▓
 
-    # [c, g, i, o, p, r, t]
+    # [b, c, g, h, i, o, p, r, t]
 
 # ▓▓▒░  print header when terminal opens  ░▒▓▓
 
@@ -25,24 +25,7 @@
     echo User $USER on $TERM running '\uF303' Arch Linux '('`uname -r`')''\uF303'
     echo
 
-
-# ▓▓▒░  sys  ░▒▓▓
-
-    alias sudo='sudo ' # hack to allow aliases with sudo
-    alias   sd="echo 'Lkjuio*8' | sudo -S shutdown"
-    alias   rb="echo 'Lkjuio*8' | sudo -S reboot"
-    alias    c="clear"
-    alias   mv="mv -iv"
-    alias   cp="cp -iv"
-    alias   md="mkdir -v"
-    alias   rm='rm -rf'
-    alias    o='xdg-open'
-
-  # grep
-    alias grep='grep --color=auto -i'
-
-  # ip address
-    # alias ip="echo Your ip is; dig +short myip.opendns.com @resolver1.opendns.com;"
+# ▓▓▒░  load configs  ░▒▓▓
 
   # Use z plugin (https://github.com/rupa/z)
     source ~/.config/z.sh
@@ -56,8 +39,40 @@
     powerline-daemon -q
     source /usr/share/powerline/bindings/zsh/powerline.zsh
 
+# ▓▓▒░  sys  ░▒▓▓
+
+    alias sudo='sudo ' # hack to allow aliases with sudo
+    alias   sd="echo 'Lkjuio*8' | sudo -S shutdown"
+    alias   rb="echo 'Lkjuio*8' | sudo -S reboot"
+    alias   cl="clear"
+    alias   mv="mv -iv"
+    alias   cp="cp -iv"
+    alias   md="mkdir -v"
+    alias   rm='rm -rf'
+    alias    o='i3-dmenu-desktop --dmenu=fzf'
+
+  # grep
+    alias grep='grep --color=auto -i'
+
+  # ip address
+    # alias ip="echo Your ip is; dig +short myip.opendns.com @resolver1.opendns.com;"
+
 
 # ▓▓▒░  navigation  ░▒▓▓
+
+  # local directories - fzf and cd into a list of all local directories
+    function c() {
+      local dir
+      dir=$(find ${1:-.} -type d -maxdepth 1 -print 2> /dev/null | sed 's/^..//' | fzf +m) &&
+      cd "$dir"
+      ls
+    }
+
+  # history - fzf and cd into any history location
+    h() {
+      [ $# -gt 0 ] && _z "$*" && return
+      cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
+    }
 
     alias    ~="cd ~"
     alias   ..="cd .."
@@ -76,6 +91,22 @@
       exa --tree --level=$depth
     }
 
+# ▓▓▒░  internet bookmarks  ░▒▓▓
+
+  # b - browse chrome bookmarks
+    b() {
+        bookmarks_path=~/Library/Application\ Support/Google/Chrome/Default/Bookmarks
+
+        jq_script='
+            def ancestors: while(. | length >= 2; del(.[-1,-2]));
+            . as $in | paths(.url?) as $key | $in | getpath($key) | {name,url, path: [$key[0:-2] | ancestors as $a | $in | getpath($a) | .name?] | reverse | join("/") } | .path + "/" + .name + "\t" + .url'
+
+        jq -r "$jq_script" < "$bookmarks_path" \
+            | sed -E $'s/(.*)\t(.*)/\\1\t\x1b[36m\\2\x1b[m/g' \
+            | fzf --ansi \
+            | cut -d$'\t' -f2 \
+            | xargs open
+    }
 
 # ▓▓▒░  lighthouse  ░▒▓▓
 
@@ -130,7 +161,7 @@
 # ▓▓▒░  external hard drive  ░▒▓▓
 
     alias hd="cd /mnt; ls"
-    alias mhd="echo 'Lkjuio*8' | sudo -S mount -t ntfs3 /dev/sdb1 /mnt"
+    alias mhd="echo 'Lkjuio*8' | sudo -S mount -t ntfs3 /dev/sda1 /mnt"
     alias uhd="echo 'Lkjuio*8' | sudo -S umount /mnt"
 
 
@@ -155,6 +186,7 @@
   # zshrc (aliases)
     alias ea="code ~/.zshrc"
     alias sa="source ~/.zshrc"
+    alias va="alias | fzf"
 
   # i3
     alias i3="code ~/.config/i3/config" # (source with `Ctrl+Shift+c`)
@@ -174,11 +206,45 @@
 
 # ▓▓▒░  launch programs  ░▒▓▓
 
-    alias  r="ranger"
-    alias  t="tmux"
+    alias r="ranger"
+    alias t="tmux"
 
+# ▓▓▒░  fzf  ░▒▓▓
+
+
+    alias fp="fzf --preview 'bat --color always --line-range :50 {}'"
 
 # ▓▓▒░  tmux  ░▒▓▓
+
+  #ss - Select selected tmux session
+  #   - Bypass fuzzy finder if there's only one match (--select-1)
+  #   - Exit if there's no match (--exit-0)
+  ss() {
+    local session
+    session=$(tmux list-sessions -F "#{session_name}" | \
+      fzf --query="$1" --select-1 --exit-0) &&
+    tmux switch-client -t "$session"
+  }
+
+  # sp - switch pane
+    sp() {
+      local panes current_window current_pane target target_window target_pane
+      panes=$(tmux list-panes -s -F '#I:#P - #{pane_current_path} #{pane_current_command}')
+      current_pane=$(tmux display-message -p '#I:#P')
+      current_window=$(tmux display-message -p '#I')
+
+      target=$(echo "$panes" | grep -v "$current_pane" | fzf +m --reverse) || return
+
+      target_window=$(echo $target | awk 'BEGIN{FS=":|-"} {print$1}')
+      target_pane=$(echo $target | awk 'BEGIN{FS=":|-"} {print$2}' | cut -c 1)
+
+      if [[ $current_window -eq $target_window ]]; then
+        tmux select-pane -t ${target_window}.${target_pane}
+      else
+        tmux select-pane -t ${target_window}.${target_pane} &&
+        tmux select-window -t $target_window
+      fi
+    }
 
   # refresh: exit all except current session
     alias tr="tmux kill-session -a" 
