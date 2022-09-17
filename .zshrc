@@ -95,7 +95,7 @@
 
   # b - browse chrome bookmarks
     b() {
-        bookmarks_path=~/Library/Application\ Support/Google/Chrome/Default/Bookmarks
+        bookmarks_path=/home/neo/.config/google-chrome/Default/Bookmarks
 
         jq_script='
             def ancestors: while(. | length >= 2; del(.[-1,-2]));
