@@ -13,3 +13,5 @@
   #   message="$*"
   #   config add . && config commit -m $message && config push origin master
   # }
+
+  # fake add

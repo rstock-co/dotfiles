@@ -17,6 +17,8 @@
 
     # [b, c, g, h, i, o, p, r, t]
 
+
+
 # ▓▓▒░  load config files  ░▒▓▓
 
   # z plugin (https://github.com/rupa/z)
@@ -31,15 +33,10 @@
     powerline-daemon -q
     source /usr/share/powerline/bindings/zsh/powerline.zsh
 
-  # my shell files
+  # load all of my other config files
     for FILE in ~/zshrc/*; do
         source $FILE
     done
-
-# ▓▓▒░  launch programs  ░▒▓▓
-
-    alias r="ranger"
-    alias t="tmux"
 
 
 # ▓▓▒░  print header when terminal opens  ░▒▓▓
@@ -51,59 +48,9 @@
     echo
 
 
-# ▓▓▒░  lighthouse  ░▒▓▓
-
-  #current project 
-
-    alias   p="cd ~/lighthouse/tweeter"
-    alias ccp="code ~/lighthouse/tweeter"
-    alias nrl="npm run local"
-
-  #vagrant
-
-    alias  vu="cd ~/lighthouse; vagrant up"
-    alias vsh="cd ~/lighthouse; vagrant ssh"
-    alias  vh="cd ~/lighthouse; vagrant halt"
-
-  #lecture notes (needs work)
-
-    function tn(){
-      type="$1"
-      time="$2"
-      # instructor="$3"
-      # content=Week ${time:1,2}, Day ${time:4,2} - (insert date)
-      # echo $content
-      cd ~/lighthouse/lighthouse-web-notes; touch ${time}_${type}.md; code ${time}_${type}.md
-    }
-
-
-# ▓▓▒░  fzf  ░▒▓▓
-
 # ▓▓▒░  rick roll ░▒▓▓
 
     alias rr="curl -s -L http://bit.ly/10hA8iC | bash"
-
-
-# ▓▓▒░  in development  ░▒▓▓
-
-  # cli command: syntax `mdn <topic>` - opens browser with mdn topic
-    function mdn(){
-      url="$*"
-      xdg-open https://developer.mozilla.org/en-US/search?q=$url
-    }
-
-  # source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-  # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-  # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-  # oh-my-zsh
-  # ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
-  # if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  #  mkdir $ZSH_CACHE_DIR
-  # fi
-
-  # source $ZSH/oh-my-zsh.sh
 
 
 # ▓▓▒░  powerlevel10k  ░▒▓▓ (move to very top - if going to use again)
@@ -130,3 +77,17 @@
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git)
+
+
+# source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# oh-my-zsh
+# ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+# if [[ ! -d $ZSH_CACHE_DIR ]]; then
+#  mkdir $ZSH_CACHE_DIR
+# fi
+
+# source $ZSH/oh-my-zsh.sh
