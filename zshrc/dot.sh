@@ -5,17 +5,9 @@
 
     alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
     alias     cs='config status'
+    alias     ca='config add'
+    alias     cc='config commit -m'
     alias    cpu='config push origin master'
-    
-    function ca() {
-      file="$*"
-      config add $file
-    }
-
-    function cc() {
-      message="$*"
-      config commit -m $message
-    }
 
   # function cpa() {
   #   message="$*"
