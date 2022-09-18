@@ -5,7 +5,7 @@
     alias  gs="git status"
     alias  ga="git add"
     alias  gc="git commit -m"
-    alias gaa="git add ."
+    alias gaa="git add .;git status"
 
   # git add multiple files using fuzzy filter
     alias gam="git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 -o -t git add"

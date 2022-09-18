@@ -1,7 +1,7 @@
 # ▓▓▒░  open & edit config files  ░▒▓▓
 
   # aliases
-    alias ea="code ~/.zshrc"
+    alias ea="code ~/zshrc"
     alias sa="source ~/.zshrc"
     alias va="alias | fzf"
 
@@ -20,7 +20,5 @@
   # vs code
     alias vs="code ~/.config/Code/User/settings.json"
 
-    alias sh="code ~/zshrc"
-
-  # needs fixing because it opens the correct file but also a 2nd empty file
+  # open specific shell file (needs fixing because it opens the correct file but also a 2nd empty file)
     # alias sh="cd ~/zshrc; ls | fzf | xargs code -r"
