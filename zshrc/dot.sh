@@ -6,7 +6,6 @@
     alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
     alias     cs='config status'
     alias     ca='config add'
-    # alias     cc='config commit -m'
     alias    cpu='config push origin master'
 
     function cc() {
