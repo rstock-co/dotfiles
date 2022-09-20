@@ -48,8 +48,6 @@
     },
     "scss.showErrors": true,
     "git.enabled": false,
-    "git.decorations.enabled": false,
-    "editor.glyphMargin": false,
     "editor.guides.highlightActiveBracketPair": false,
     "editor.guides.bracketPairsHorizontal": false,
 }

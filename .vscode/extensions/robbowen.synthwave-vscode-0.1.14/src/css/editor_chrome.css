@@ -1,6 +1,5 @@
 /* Add the subtle gradient to the editor background */
 .monaco-editor {
-  background-image: linear-gradient(to bottom, #0a070f 75%, #0d0916);
   background-size: auto 100vh;
   background-position: top;
   background-repeat: no-repeat;
