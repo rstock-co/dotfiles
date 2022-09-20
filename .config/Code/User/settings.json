@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "One Dark Pro Mix",
+    "workbench.colorTheme": "SynthWave '84",
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
@@ -14,30 +14,42 @@
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "editor.fontFamily": "'BPmono'",
+    "editor.fontFamily": "BPmono",
     "workbench.colorCustomizations": {
+     
         "editor.background": "#020109",
-        "editor.selectionHighlightBackground": "#1b1336",
-        "editor.selectionHighlightBorder":"#300eb7",
+        "editorGroup.border":"#1e1631",
+        "editor.selectionHighlightBackground": "#2e0b3b",
+        "editor.selectionHighlightBorder":"#8f0978",
         "editor.selectionBackground": "#322448",
-        "sideBar.background": "#0e0e1a",
-        "activityBar.background": "#060914",
+        "sideBar.background": "#0c0816",
+        "activityBar.background": "#13091a",
         "sideBar.foreground": "#a2a0bc",
-        "sideBarTitle.foreground": "#746ade",
+        "sideBarTitle.foreground": "#692a69",
         "sideBarSectionHeader.border": "#110f26",
         "tab.activeBackground": "#0e0e1a",
-        "tab.inactiveBackground": "#191928",
+        "tab.inactiveBackground": "#0c0816",
+        "tab.inactiveForeground": "#8f859e",
         "tab.activeBorder":"#6d5a89",
         "tab.activeBorderTop":"#423554",
         "tab.activeForeground": "#bfbcdf",
         "tab.border":"#2d2a39",
-        "tab.hoverBackground":"#242436"
-        
-
+        "tab.hoverBackground":"#242436",
+        "editorLineNumber.foreground": "#2d204b",
+        "editorGutter.background": "#020109",
+        "editorBracketMatch.border":"#3c04d5",
+        "editorIndentGuide.activeBackground": "#23122d",
+        "editorIndentGuide.background": "#22182c"
     },
+ 
     "sass.disableAutoIndent": true,
     "[scss]": {
         "editor.defaultFormatter": "vscode.css-language-features"
     },
-    "scss.showErrors": true
+    "scss.showErrors": true,
+    "git.enabled": false,
+    "git.decorations.enabled": false,
+    "editor.glyphMargin": false,
+    "editor.guides.highlightActiveBracketPair": false,
+    "editor.guides.bracketPairsHorizontal": false,
 }
