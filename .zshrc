@@ -45,7 +45,6 @@
     # echo ▓▒░  ARCH LINUX CUSTOM ZSH SHELL  ░▒▓
     echo It is currently $(date "+%A, %B %-e, %G, %l:%M %P %Z")
     echo User $USER on $TERM running '\uF303' Arch Linux '('`uname -r`')''\uF303'
-    echo
 
 
 # ▓▓▒░  rick roll ░▒▓▓

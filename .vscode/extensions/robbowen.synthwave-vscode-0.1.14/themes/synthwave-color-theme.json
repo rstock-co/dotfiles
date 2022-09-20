@@ -188,7 +188,7 @@
       "name": "Parameter",
       "scope": "variable.parameter",
       "settings": {
-        "foreground": "#fe4450",
+        "foreground": "#7473e6",
         "fontStyle": "italic"
       }
     },
