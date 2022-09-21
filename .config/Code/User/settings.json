@@ -17,7 +17,7 @@
     "editor.fontFamily": "BPmono",
     "workbench.colorCustomizations": {
      
-        "editor.background": "#020109",
+        "editor.background": "#05020e",
         "editorGroup.border":"#1e1631",
         "editor.selectionHighlightBackground": "#2e0b3b",
         "editor.selectionHighlightBorder":"#8f0978",
@@ -35,10 +35,10 @@
         "tab.activeForeground": "#bfbcdf",
         "tab.border":"#2d2a39",
         "tab.hoverBackground":"#242436",
-        "editorLineNumber.foreground": "#2d204b",
-        "editorGutter.background": "#020109",
+        "editorLineNumber.foreground": "#372957",
+        "editorGutter.background": "#05020e",
         "editorBracketMatch.border":"#3c04d5",
-        "editorIndentGuide.activeBackground": "#23122d",
+        "editorIndentGuide.activeBackground": "#471942",
         "editorIndentGuide.background": "#22182c"
     },
  
