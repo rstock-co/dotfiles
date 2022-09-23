@@ -1,14 +1,21 @@
 # ▓▓▒░  navigation  ░▒▓▓
 
-  # local directories - fzf and cd into a list of all local directories
-    function c() {
+  # find ALL local directories then fzf and cd into (and list contents)
+    function fad() {
       local dir
-      dir=$(find ${1:-.} -type d -maxdepth 1 -print 2> /dev/null | sed 's/^..//' | fzf +m) &&
+      dir=$(find ${1:-.} -type d -maxdepth 1 -print 2> /dev/null | sed 's/^..//' | fzf-tmux +m) &&
       cd "$dir"
       ls
     }
 
-  # history - fzf and cd into any history location
+# find local directories then fzf and cd into (and list contents)
+    function fd() {
+      DIR=`find * -maxdepth 0 -type d -print 2> /dev/null | fzf-tmux` \
+        && cd "$DIR"
+        ls
+    }
+
+  # shell history - fzf and cd into any history location
     function h() {
       [ $# -gt 0 ] && _z "$*" && return
       cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"

@@ -43,7 +43,7 @@ colors:
   # Default colors
   primary:
     background: '#100a1f'
-    foreground: '#a9afde'
+    foreground: '#ebe8df'
 
   cursor:
     text: '0x191622'

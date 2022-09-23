@@ -38,6 +38,13 @@
         source $FILE
     done
 
+# ▓▓▒░  shell history  ░▒▓▓
+
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=100000
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt SHARE_HISTORY
 
 # ▓▓▒░  print header when terminal opens  ░▒▓▓
 
