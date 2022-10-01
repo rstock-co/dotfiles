@@ -58,6 +58,9 @@ setopt SHARE_HISTORY
 
     alias rr="curl -s -L http://bit.ly/10hA8iC | bash"
 
+# ▓▓▒░  nvm ░▒▓▓
+
+    source /usr/share/nvm/init-nvm.sh
 
 # ▓▓▒░  powerlevel10k  ░▒▓▓ (move to very top - if going to use again)
 

@@ -2,9 +2,11 @@
 
   #current project 
 
-    alias   p="cd ~/lighthouse/tweeter"
-    alias ccp="code ~/lighthouse/tweeter"
-    alias nrl="npm run local"
+    alias   p="cd ~/lighthouse/Food-Pickup-Ordering"
+    alias ccp="code ~/lighthouse/Food-Pickup-Ordering"
+    alias  sp="p; npm run local" // this can only be run inside vagrant
+    alias gtp="xdg-open http://localhost:8080/"
+    alias rdb="npm run db:reset" // this can only be run inside vagrant
 
   #vagrant
 

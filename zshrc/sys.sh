@@ -13,6 +13,10 @@
   # grep
     alias grep='grep --color=auto -i'
 
+  # node 
+    # syntax: `nm <filepath>`
+    alias nm='node --experimental-specifier-resolution=node' # to run a file locally which has ES6 module inports/exports
+
   # ip address
     # alias ip="echo Your ip is; dig +short myip.opendns.com @resolver1.opendns.com;"
 

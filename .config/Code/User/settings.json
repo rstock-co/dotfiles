@@ -3,7 +3,6 @@
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
-    "window.zoomLevel": 1,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -51,4 +50,11 @@
     "editor.guides.highlightActiveBracketPair": false,
     "editor.guides.bracketPairsHorizontal": false,
     "workbench.iconTheme": "material-icon-theme",
+    "window.zoomLevel": 1,
+    "prettier.arrowParens": "avoid",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "javascript.format.semicolons": "insert",
+    "editor.formatOnPaste": true,
+    "editor.tabSize": 2,
 }
