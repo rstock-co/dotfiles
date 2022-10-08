@@ -2,11 +2,14 @@
 
   #current project 
 
-    alias   p="cd ~/lighthouse/Food-Pickup-Ordering"
-    alias ccp="code ~/lighthouse/Food-Pickup-Ordering"
-    alias  sp="p; npm run local" // this can only be run inside vagrant
-    alias gtp="xdg-open http://localhost:8080/"
-    alias rdb="npm run db:reset" // this can only be run inside vagrant
+    alias   p="cd ~/lighthouse/react/scheduler"
+    alias ccp="code ~/lighthouse/react/scheduler"
+    alias  sp="p; npm start"
+    alias  op="xdg-open http://localhost:8000/"
+    alias  ss="p; npm run storybook"
+    alias  os="xdg-open http://localhost:9009/"
+    alias  tp="p; npm test"
+    alias sdb="cd ~/lighthouse/react/scheduler-api; npm start" // vagrant must be up
 
   #vagrant
 

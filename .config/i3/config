@@ -116,7 +116,8 @@ workspace $ws9 output $monitor_three
 # https://i3wm.org/docs/userguide.html#default_border
 #----------------------
 
-default_border none
+default_border pixel 0
+default_floating_border pixel 0
 
 hide_edge_borders smart
 

@@ -7,7 +7,7 @@
 #    - "tmux attach || tmux"
 
 # always open alacritty in maximized widown
-window: 
+window:
   startup_mode: Maximized
   decorations: full
   opacity: 0.97
@@ -15,9 +15,9 @@ window:
 
 font:
   normal:
-    family: BPmono
+    family: DroidSansMono Nerd Font # Hasklug Nerd Font # BPmono
     style: Regular
-# DroidSans Mono Nerd Font
+
   medium:
     family: FiraCode Nerd Font
     style: Medium
@@ -36,52 +36,51 @@ font:
 
   size: 13
 
-
 # VSCode's integrated terminal default colors
 # Primary and dimmed colors needed
 colors:
   # Default colors
   primary:
-    background: '#100a1f'
-    foreground: '#ebe8df'
+    background: "#100a1f"
+    foreground: "#ebe8df"
 
   cursor:
-    text: '0x191622'
-    cursor: '0xf8f8f2'
+    text: "0x191622"
+    cursor: "0xf8f8f2"
 
   # Normal colors
   normal:
-    black: '0x000000'
-    red: '0xff5555'
-    green: '#72F1B8'
-    yellow: '0xeffa78'
-    blue: '0xbd93f9'
-    magenta: '0xff79c6'
-    cyan: '0x8d79ba'
-    white: '0xbfbfbf'
+    black: "0x000000"
+    red: "0xff5555"
+    green: "#72F1B8"
+    yellow: "0xeffa78"
+    blue: "0xbd93f9"
+    magenta: "0xff79c6"
+    cyan: "0x8d79ba"
+    white: "0xbfbfbf"
 
   # Bright colors
   bright:
-    black: '0x4d4d4d'
-    red: '0xff6e67'
-    green: '0x5af78e'
-    yellow: '0xeaf08d'
-    blue: '0xcaa9fa'
-    magenta: '0xff92d0'
-    cyan: '0xaa91e3'
-    white: '0xe6e6e6'
-  
+    black: "0x4d4d4d"
+    red: "0xff6e67"
+    green: "0x5af78e"
+    yellow: "0xeaf08d"
+    blue: "0xcaa9fa"
+    magenta: "0xff92d0"
+    cyan: "0xaa91e3"
+    white: "0xe6e6e6"
+
   dim:
-    black: '0x000000'
-    red: '0xa90000'
-    green: '0x049f2b'
-    yellow: '0xa3b106'
-    blue: '0x530aba'
-    magenta: '0xbb006b'
-    cyan: '0x433364'
-    white: '0x5f5f5f'
+    black: "0x000000"
+    red: "0xa90000"
+    green: "0x049f2b"
+    yellow: "0xa3b106"
+    blue: "0x530aba"
+    magenta: "0xbb006b"
+    cyan: "0x433364"
+    white: "0x5f5f5f"
 
   indexed_colors:
-    - { index: 16, color: '0xF8BD96' }
-    - { index: 17, color: '0xF5E0DC' }
+    - { index: 16, color: "0xF8BD96" }
+    - { index: 17, color: "0xF5E0DC" }
 theme: Catppuccin

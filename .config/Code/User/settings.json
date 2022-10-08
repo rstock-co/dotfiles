@@ -1,60 +1,62 @@
 {
-    "workbench.colorTheme": "SynthWave '84",
-    "[markdown]": {
-        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "editor.minimap.enabled": false,
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "editor.fontFamily": "BPmono",
-    "workbench.colorCustomizations": {
-     
-        "editor.background": "#05020e",
-        "editorGroup.border":"#1e1631",
-        "editor.selectionHighlightBackground": "#2e0b3b",
-        "editor.selectionHighlightBorder":"#8f0978",
-        "editor.selectionBackground": "#322448",
-        "sideBar.background": "#0c0816",
-        "activityBar.background": "#13091a",
-        "sideBar.foreground": "#a2a0bc",
-        "sideBarTitle.foreground": "#692a69",
-        "sideBarSectionHeader.border": "#110f26",
-        "tab.activeBackground": "#0e0e1a",
-        "tab.inactiveBackground": "#0c0816",
-        "tab.inactiveForeground": "#8f859e",
-        "tab.activeBorder":"#6d5a89",
-        "tab.activeBorderTop":"#423554",
-        "tab.activeForeground": "#bfbcdf",
-        "tab.border":"#2d2a39",
-        "tab.hoverBackground":"#242436",
-        "editorLineNumber.foreground": "#372957",
-        "editorGutter.background": "#05020e",
-        "editorBracketMatch.border":"#3c04d5",
-        "editorIndentGuide.activeBackground": "#471942",
-        "editorIndentGuide.background": "#22182c"
-    },
- 
-    "sass.disableAutoIndent": true,
-    "[scss]": {
-        "editor.defaultFormatter": "vscode.css-language-features"
-    },
-    "scss.showErrors": true,
-    "git.enabled": false,
-    "editor.guides.highlightActiveBracketPair": false,
-    "editor.guides.bracketPairsHorizontal": false,
-    "workbench.iconTheme": "material-icon-theme",
-    "window.zoomLevel": 1,
-    "prettier.arrowParens": "avoid",
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "javascript.format.semicolons": "insert",
-    "editor.formatOnPaste": true,
-    "editor.tabSize": 2,
+  "workbench.colorTheme": "SynthWave '84",
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.minimap.enabled": false,
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontFamily": "DroidSansMono Nerd Font",
+  "workbench.colorCustomizations": {
+    "editor.background": "#05020e",
+    "editorGroup.border": "#1e1631",
+    "editor.selectionHighlightBackground": "#2e0b3b",
+    "editor.selectionHighlightBorder": "#8f0978",
+    "editor.selectionBackground": "#322448",
+    "sideBar.background": "#0c0816",
+    "activityBar.background": "#13091a",
+    "sideBar.foreground": "#a2a0bc",
+    "sideBarTitle.foreground": "#692a69",
+    "sideBarSectionHeader.border": "#110f26",
+    "tab.activeBackground": "#0e0e1a",
+    "tab.inactiveBackground": "#0c0816",
+    "tab.inactiveForeground": "#8f859e",
+    "tab.activeBorder": "#6d5a89",
+    "tab.activeBorderTop": "#423554",
+    "tab.activeForeground": "#bfbcdf",
+    "tab.border": "#2d2a39",
+    "tab.hoverBackground": "#242436",
+    "editorLineNumber.foreground": "#372957",
+    "editorGutter.background": "#05020e",
+    "editorBracketMatch.border": "#3c04d5",
+    "editorIndentGuide.activeBackground": "#471942",
+    "editorIndentGuide.background": "#22182c"
+  },
+
+  "sass.disableAutoIndent": true,
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "scss.showErrors": true,
+  "git.enabled": false,
+  "editor.guides.highlightActiveBracketPair": false,
+  "editor.guides.bracketPairsHorizontal": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "prettier.arrowParens": "avoid",
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "javascript.format.semicolons": "insert",
+  "editor.formatOnPaste": true,
+  "editor.tabSize": 2,
+  "reactSnippets.settings.typescript": false,
+  "reactSnippets.settings.prettierEnabled": true,
+  "reactSnippets.settings.languageScopes": "javascript,javascriptreact",
+  "window.zoomLevel": 1
 }
