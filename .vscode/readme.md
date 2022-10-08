@@ -23,7 +23,8 @@ sudo chown -R root /opt/visual-studio-code
 #### Step 2: Deal with Error (your Code installation appears to be corrupt.  Please re-install)
 (Install VS Code Extension called `Fix VSCode Checksums`
 
-a. open the command palette and execute `Fix Checksums: Apply`. 
+a. open the command palette and execute `Fix Checksums: Apply`.
+
 b. You will need to completely restart VSCode after execution, reopening without fully exiting might not be enough.
 
 
