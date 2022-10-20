@@ -62,6 +62,10 @@ setopt SHARE_HISTORY
 
     source /usr/share/nvm/init-nvm.sh
 
+# ▓▓▒░  ruby ░▒▓▓
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
+
 # ▓▓▒░  powerlevel10k  ░▒▓▓ (move to very top - if going to use again)
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.

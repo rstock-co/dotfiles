@@ -58,5 +58,14 @@
   "reactSnippets.settings.typescript": false,
   "reactSnippets.settings.prettierEnabled": true,
   "reactSnippets.settings.languageScopes": "javascript,javascriptreact",
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "ruby.codeCompletion": "rcodetools",
+  "ruby.format": false,
+  "ruby.intellisense": "rubyLocate",
+  "ruby.lint": false,
+  "ruby.rubocop.onSave": false,
+  "ruby.rubocop.executePath": "/home/neo/.local/share/gem/ruby/3.0.0/bin/"
 }
